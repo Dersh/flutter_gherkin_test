@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     print("build method rerun");
-    con.text="";
+    con.text = "";
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -49,8 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                               errorText: snapshot.error,
                               labelText: "email",
-                              hasFloatingPlaceholder: true,
-                              border: OutlineInputBorder()),
+                              border: OutlineInputBorder(),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.auto),
                         ),
                       ),
                     ),
@@ -68,8 +69,9 @@ class _LoginPageState extends State<LoginPage> {
                               errorText:
                                   snapshot.hasError ? snapshot.error : null,
                               labelText: "Password",
-                              hasFloatingPlaceholder: true,
-                              border: OutlineInputBorder()),
+                              border: OutlineInputBorder(),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.auto),
                         ),
                       ),
                     ),

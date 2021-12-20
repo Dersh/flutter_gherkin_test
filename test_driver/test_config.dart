@@ -6,7 +6,11 @@ import 'steps/test_steps.dart';
 
 Future<void> main() {
   final config = FlutterTestConfiguration()
-    ..features = [Glob(r"test_driver/features/**.feature")]
+    ..features = [
+      // "test_driver/features/List.feature",
+      // "test_driver/features/Favorites.feature",
+      "test_driver/features/Login.feature",
+    ] //Glob(r"test_driver/features/**.feature")
     ..reporters = [ProgressReporter()]
     ..stepDefinitions = [
       CheckGivenWidgets(),
@@ -17,8 +21,9 @@ Future<void> main() {
       MakeFavourates(),
       ScrollTillItemVisible()
     ]
-    ..restartAppBetweenScenarios = true
-    ..targetAppPath = "test_driver/app.dart"
-    ..exitAfterTestRun = true;
+    ..restartAppBetweenScenarios =
+        false //должно быть, иначе нарушается сортировка
+    //элементов
+    ..targetAppPath = "test_driver/app.dart";
   return GherkinRunner().execute(config);
 }
